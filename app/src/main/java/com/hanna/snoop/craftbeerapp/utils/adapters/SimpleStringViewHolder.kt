@@ -12,8 +12,10 @@ import com.hanna.snoop.craftbeerapp.extensions.inflate
 class SimpleStringViewHolder(itemView: View, private val textType: TextType) :
     BindableViewHolder<String>(itemView) {
 
-    enum class TextType {
-        MAIN_TITLE, SUB_TITLE, REG_TEXT
+    enum class TextType(val textSize: Float, val textStyle: Int = Typeface.NORMAL) {
+        MAIN_TITLE(22F, Typeface.BOLD),
+        SUB_TITLE(16F, Typeface.BOLD),
+        REG_TEXT(16F)
     }
 
     companion object {
@@ -36,18 +38,8 @@ class SimpleStringViewHolder(itemView: View, private val textType: TextType) :
     val tv: TextView = itemView.findViewById(R.id.text_view)
     override fun bindData(data: String) {
         with(tv) {
-            val textSize = when (textType) {
-                TextType.MAIN_TITLE -> 22F
-                TextType.SUB_TITLE, TextType.REG_TEXT -> 16F
-            }
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-
-            val typeFace = when (textType) {
-                TextType.MAIN_TITLE, TextType.SUB_TITLE -> Typeface.BOLD
-                TextType.REG_TEXT -> Typeface.NORMAL
-            }
-
-            setTypeface(tv.typeface, typeFace)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, textType.textSize)
+            setTypeface(tv.typeface, textType.textStyle)
             text = data
         }
     }
