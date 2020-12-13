@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Craft Beer App</string>
+    <string name="beer_abv_format">Beer ABV: %s%%</string>
+    <string name="beer_name">Beer Name: %s</string>
+    <string name="name">Name:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="goes_well_with">Goes well with:</string>
+    <string name="yeast_header">Yeast</string>
+    <string name="contributed_by">Contributed By: %s</string>
+    <string name="amount_representation">%s %s</string>
+    <string name="formatted_hops_additional_info">Add: %s, Attribute: %s</string>
+</resources>
